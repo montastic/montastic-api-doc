@@ -20,7 +20,8 @@ Example:
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
 
 Response:
-Status: OK
+
+    Status: OK
     <?xml version="1.0" encoding="UTF-8"?>
     <checkpoint>
       <check-interval-id type="integer">3</check-interval-id>
