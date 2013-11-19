@@ -2,9 +2,9 @@
 
 ## About Montastic API
 
-Montastic API allows 3rd party developers to build web, desktop, server applications or scripts that can communicate directly with Montastic. The communication is done by using RESTful HTTPS requests and XML responses.
+Montastic API is simplistic and very easy to use. Montastic API allows 3rd party developers to build web, desktop, and server applications or simple scripts that can communicate directly with the Montastic service. The communication is done by using `RESTful HTTPS` requests and `XML` responses. 
 
-Learn about Montastic at www.montastic.com.
+ - Learn about Montastic at www.montastic.com.
 
 ## Authentication
 
