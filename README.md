@@ -1,22 +1,25 @@
-montastic-api-doc
-=================
+# Montastic API Documentation
 
-This is the official Montastic API documentation.
-
-Learn about Montastic at www.montastic.com.
-
-### About Montastic API
+## About Montastic API
 
 Montastic API allows 3rd party developers to build web, desktop, server applications or scripts that can communicate directly with Montastic. The communication is done by using RESTful HTTPS requests and XML responses.
+
+Learn about Montastic at www.montastic.com.
 
 ## Authentication
 
 Each API request requires a basic HTTP authentication, which means the presence of username & password is required.
+
 Example:
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
-    
+
+### Terminology
+
+`In Montastic lingo, a checkpoint is a URL Montastic service is monitoring.`
+
 ### Getting a Checkpoint Record  
+
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
 
@@ -116,7 +119,7 @@ Response:
 ## Checkpoint Fields Explanation  
  
  - url
-  - URL to check. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.ibm.com:8080/login
+  - URL to monitor. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.ibm.com:8080/login
  - name
   - Name given to this checkpoint. E.g. 'Website login page'.
  - grep-this
