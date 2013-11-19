@@ -15,11 +15,11 @@ Example:
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
 
-### Terminology
+## Terminology
 
 In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 
-### Getting a Checkpoint Record  
+## Getting a Checkpoint Record  
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
 
@@ -66,7 +66,7 @@ Response:
 
     Status: OK
     
-### Getting a List of Checkpoints
+## Getting a List of Checkpoints
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
     
