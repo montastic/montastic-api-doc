@@ -1,6 +1,6 @@
 # Montastic API Documentation
 
-Montastic is a web site monitoring service developed by Metadot (www.metadot.com). It allows web masters to be alerted if their website goes down or in case certain conditions are met. This document describe its public API.
+Montastic (www.montastic.com) is a web site monitoring service developed by Metadot. It allows web masters to be alerted if their website goes down or in case certain conditions are met. This document describe its public API.
 
 
 ## About Montastic API
