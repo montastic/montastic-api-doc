@@ -111,24 +111,25 @@ Response:
 
     Status: OK
     
-Checkpoint fields explanation  
+
+## Checkpoint Fields Explanation  
  
  - url
   - URL to check. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.ibm.com:8080/login
-name
-Name given to this checkpoint. E.g. 'Website login page'.
-grep-this
-Keyword Montastic should check for. E.g. keyboard
-grep-presence
-true (default) | false: if true, Montastic checks the presence of <grep-this> keyword. If false, Montastic checks that the document does not contain the <grep-this> keyword.
-id
-Unique id of a checkpoint. This is assigned automatically at checkpoint creation time.
-is-monitoring-enabled
-true | false: if true, Montastic monitors the checkpoint on a regular basis set by check-interval-id. If false, checkpoint is not monitored.
-status
--1 | 0 | 1: If -1 checkpoint is faulty. 1 means all is OK. 0 means unknown status.
-status-changed-on
-Date of the last status change.
-check-interval-id
-Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
+ - name
+  - Name given to this checkpoint. E.g. 'Website login page'.
+ - grep-this
+  - Keyword Montastic should check for. E.g. keyboard
+ - grep-presence
+  - true (default) | false: if true, Montastic checks the presence of <grep-this> keyword. If false, Montastic checks that the document does not contain the <grep-this> keyword.
+ - id
+  - Unique id of a checkpoint. This is assigned automatically at checkpoint creation time.
+ - is-monitoring-enabled
+  - true | false: if true, Montastic monitors the checkpoint on a regular basis set by check-interval-id. If false, checkpoint is not monitored.
+ - status
+  - -1 | 0 | 1: If -1 checkpoint is faulty. 1 means all is OK. 0 means unknown status.
+ - status-changed-on
+  - Date of the last status change.
+ - check-interval-id
+  - Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
  
