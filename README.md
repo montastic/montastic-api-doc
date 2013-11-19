@@ -16,10 +16,9 @@ Example:
 
 ### Terminology
 
-`In Montastic lingo, a checkpoint is a URL Montastic service is monitoring.`
+In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 
 ### Getting a Checkpoint Record  
-
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
 
@@ -60,18 +59,15 @@ Response:
     
 ## Deleting a Checkpoint
 
-    
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml'  -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/destroy/156423 -X DELETE
     
 Response:
 
     Status: OK
     
-    
 ### Getting a List of Checkpoints
 
     curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
-    
     
 Response:
 
@@ -121,13 +117,13 @@ Response:
  - url
   - URL to monitor. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.ibm.com:8080/login
  - name
-  - Name given to this checkpoint. E.g. 'Website login page'.
+  - Human / friendly name of this checkpoint. E.g. 'Website login page'.
  - grep-this
   - Keyword Montastic should check for. E.g. keyboard
  - grep-presence
   - true (default) | false: if true, Montastic checks the presence of <grep-this> keyword. If false, Montastic checks that the document does not contain the <grep-this> keyword.
  - id
-  - Unique id of a checkpoint. This is assigned automatically at checkpoint creation time.
+  - id of a checkpoint. This is unique number assigned automatically at checkpoint creation time.
  - is-monitoring-enabled
   - true | false: if true, Montastic monitors the checkpoint on a regular basis set by check-interval-id. If false, checkpoint is not monitored.
  - status
