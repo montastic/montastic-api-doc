@@ -19,25 +19,6 @@ Example:
 
 In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 
-## Getting a Checkpoint Record  
-
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
-
-Response:
-
-    Status: OK
-    <?xml version="1.0" encoding="UTF-8"?>
-    <checkpoint>
-      <check-interval-id type="integer">3</check-interval-id>
-      <grep-this>Login</grepthis>
-      <grep-presence>true</grep-presence>
-      <id type="integer">9795</id>
-      <is-monitoring-enabled type="boolean">true</is-monitoring-enabled>
-      <name>Login page</name>
-      <status type="integer">1</status>
-      <status-changed-on type="datetime">2008-12-29T17:54:18-06:00</status-changed-on>
-      <url>http://www.google.com/</url>
-    </checkpoint>
 
 ## Creating a New Checkpoint  
 
@@ -57,6 +38,26 @@ Response:
       <url>http://ww3.test3.com</url>
     </checkpoint>
     
+
+## Retrieving a Checkpoint Record  
+
+    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
+
+Response:
+
+    Status: OK
+    <?xml version="1.0" encoding="UTF-8"?>
+    <checkpoint>
+      <check-interval-id type="integer">3</check-interval-id>
+      <grep-this>Login</grepthis>
+      <grep-presence>true</grep-presence>
+      <id type="integer">9795</id>
+      <is-monitoring-enabled type="boolean">true</is-monitoring-enabled>
+      <name>Login page</name>
+      <status type="integer">1</status>
+      <status-changed-on type="datetime">2008-12-29T17:54:18-06:00</status-changed-on>
+      <url>http://www.google.com/</url>
+    </checkpoint>
     
 ## Deleting a Checkpoint
 
