@@ -1,33 +1,37 @@
 # Montastic API Documentation
 
 Montastic (www.montastic.com) is a web site monitoring service developed by Metadot. 
-It allows web masters to be alerted if their website goes down or in case certain conditions are met. This document describes its public API.
-
+It allows web masters to be alerted if their website goes down or if certain conditions are met such as the presence or the absence of a keyword. This document describes its public API.
 
 ## About Montastic API
 
-Montastic API is simplistic and very easy to use. Montastic API allows 3rd party developers to build web, desktop, and server applications or simple scripts that can communicate directly with the Montastic service. The communication is done by using `RESTful` `HTTPS` requests and `JSON` or `XML` responses. The use of `JSON` format is recommended.
+Montastic API is easy to use. It allows 3rd party developers to build web, desktop, and server applications or simple scripts that can communicate with the Montastic service. The communication is done by using `RESTful` `HTTPS` requests and `JSON` or `XML` responses. The use of `JSON` format is recommended.
 
-## Authentication
+## Authentication With API Key
 
-Each API request requires a basic HTTP authentication, which means the presence of username & password is required.
+A Montastic user account API key must be used for authentication using a special header `X-API-KEY`. Example:
 
-JSON Example (recommended):
+    curl -H "X-API-KEY: YOUR-API-KEY" -H 'Accept: application/json' https://www.montastic.com/checkpoints/index
+    
+## XML or JSON Response?
 
-    curl -H 'Accept: application/json' -H 'Content-type: application/json' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
+The request `HTTP` header `Accept` will determine the format Montastic will use for the response. `JSON` format is recommended.
 
-XML Example:
+### To get JSON responses (Recommended)
 
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
+    curl -H "X-API-KEY: YOUR-API-KEY" -H 'Accept: application/json' https://www.montastic.com/checkpoints/index
+
+### To get XML Responses
+
+    curl -H "X-API-KEY: YOUR-API-KEY" -H 'Accept: application/xml' https://www.montastic.com/checkpoints/index
 
 ## Terminology
 
 In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 
+## Creating a New Checkpoint in XML
 
-## Creating a New Checkpoint  
-
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml'  -u billy@example.com:123456 https://www.montastic.com/checkpoints/create -d '<checkpoint><url>http://ww3.test3.com</url></checkpoint>' -X POST
+    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -H "X-API-KEY: YOUR-API-KEY"  https://www.montastic.com/checkpoints/create -d '<checkpoint><url>http://ww3.test3.com</url></checkpoint>' -X POST
     
 Response:
 
@@ -44,10 +48,16 @@ Response:
     </checkpoint>
     
 
-## Retrieving a Checkpoint Record  
+## Retrieving a Checkpoint  
 
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/show/9795
+JSON
 
+    curl -H 'Accept: application/json' -H "X-API-KEY: YOUR-API-KEY" https://www.montastic.com/checkpoints/show/9795
+
+XML
+
+    curl -H 'Accept: application/xml' -H "X-API-KEY: YOUR-API-KEY" https://www.montastic.com/checkpoints/show/9795
+   
 Response:
 
     Status: OK
@@ -66,7 +76,7 @@ Response:
     
 ## Deleting a Checkpoint
 
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml'  -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/destroy/156423 -X DELETE
+    curl -X DELETE -H "X-API-KEY: YOUR-API-KEY" https://www.montastic.com/checkpoints/destroy/156423 
     
 Response:
 
@@ -74,7 +84,7 @@ Response:
     
 ## Getting a List of Checkpoints
 
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml' -u daniel@metadot.com:123456 https://www.montastic.com/checkpoints/index
+    curl -H "X-API-KEY: YOUR-API-KEY" -H 'Accept: application/xml' https://www.montastic.com/checkpoints/index
     
 Response:
 
@@ -112,29 +122,28 @@ Response:
 
 ## Updating a Checkpoint  
 
-    curl -H 'Accept: application/xml' -H 'Content-type: application/xml'  -u daniel@metadot.com:123456 http://www.montastic.com/checkpoints/update/21 -d '<checkpoint><name>Montastic.com production</name></checkpoint>' -X POST
+    curl  -X POST -H "X-API-KEY: YOUR-API-KEY" -H 'Accept: application/xml' -H 'Content-type: application/xml' -d '<checkpoint><name>Montastic.com production</name></checkpoint>' http://www.montastic.com/checkpoints/update/21
     
 Response:
 
     Status: OK
     
-
 ## Checkpoint Fields Explanation  
  
  - `url`
-  - URL to monitor. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.ibm.com:8080/login
+  - URL to monitor. E.g. http://www.daskeyboard.com/ or https://bob:secret@login.tesla.com:8080/login
  - `name`
   - Human / friendly name of this checkpoint. E.g. 'Website login page'.
  - `grep-this`
-  - Keyword Montastic should check for. E.g. keyboard
+  - Keyword Montastic should look for. E.g. keyboard
  - `grep-presence`
   - true (default) | false: if true, Montastic checks the presence of `grep-this` keyword. If false, Montastic checks that the document does not contain the `grep-this` keyword.
  - `id`
-  - id of a checkpoint. This is a unique number assigned automatically at checkpoint creation time.
+  - id of a checkpoint. This is a unique id assigned automatically at checkpoint creation time.
  - `is-monitoring-enabled`
-  - true | false: if true, Montastic monitors the checkpoint on a regular basis set by `check-interval-id`. If false, checkpoint is not monitored.
+  - true | false: if true, Montastic monitors the checkpoint on a regular basis. If false, checkpoint is not monitored.
  - `status`
-  - -1 | 0 | 1: If -1 checkpoint is faulty (e.g. website down). 1 means all is OK. 0 means unknown status.
+  - -1 | 0 | 1: If -1 checkpoint is in alarm (e.g. website down). 1 means all is OK. 0 means unknown status.
  - `status-changed-on`
   - Date of the last status change.
  - `check-interval-id`
