@@ -30,7 +30,7 @@ Example:
 ### Requesting XML Responses (deprecated)
 
     This document describes Montastic API using XML format
-    ================= LINK TODO
+   [Montastic XML API (deprecated)](./deprecated)
 
 ## Terminology
 
@@ -39,7 +39,7 @@ In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 ## Note for Coders
 
 In this document, and for script reading purpose we use these shell variables:
-    
+
     YOUR_API_KEY='SECRET_KEY'
     URL='https://montastic.com/checkpoints'
 

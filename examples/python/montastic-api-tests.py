@@ -9,7 +9,7 @@
 # Public domain.    
 #
 ##
-import requests # pipenv install requests
+import requests # pip install requests
 import sys
 
 dn = 'https://montastic.com'
