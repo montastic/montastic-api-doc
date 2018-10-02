@@ -1,5 +1,8 @@
 # Montastic API Documentation
 
+The Montastic REST API allows users to do `CRUD (Create, Retrieve, Update, Delete`)
+ operations to the URLs they monitor with Montastic.
+
 Montastic (www.montastic.com) is a web site monitoring service developed by Metadot.
 It allows webmasters to be alerted if their website goes down or if certain conditions
  are met such as the presence or the absence of a keyword on a HTML page.
