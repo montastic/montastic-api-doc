@@ -1,6 +1,6 @@
 # Montastic API Documentation
 
-The Montastic REST API allows users to do `CRUD` (Create, Retrieve, Update, Delete)
+The Montastic REST API allows users to perform `CRUD` (Create, Retrieve, Update, Delete)
  operations to the URLs they monitor with Montastic.
 
 Montastic (www.montastic.com) is a web site monitoring service developed by Metadot.
