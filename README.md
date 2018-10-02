@@ -48,23 +48,28 @@ In this document, and for script reading purpose we use these shell variables:
 A checkpoint is described as follows:  
 
 - `url`: required
- - URL to monitor. E.g. https://www.daskeyboard.com/
+  - URL to monitor. E.g. https://www.daskeyboard.com/
 - `name`
- - Human / friendly name of this checkpoint. E.g. 'Website login page'.
+  - Human / friendly name of this checkpoint. E.g. 'Website login page'.
 - `grep_this`
   - Keyword Montastic should look for. E.g. keyboard
 - `grep_presence`
   - true (default) | false: if true, Montastic checks the presence of `grep-this` keyword. If false, Montastic checks that the document does not contain the `grep-this` keyword.
-- `id`
-  - id of a checkpoint. Unique id assigned automatically at checkpoint creation time.
 - `is_monitoring_enabled`
   - true | false: if true, Montastic monitors the checkpoint on a regular basis based on `check_interval_id`. If false, monitoring is paused.
+- `check_interval_id`
+  - Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
+- `notes`
+  - a text field to add some notes. E.g.: "if this site is down: contact Bob"
+- ====> *values below this line are read-only*
+- `id`
+  - id of a checkpoint. Unique id assigned automatically at checkpoint creation time.
 - `status`
   - -1 | 0 | 1: If -1 checkpoint is in alarm (e.g. website down). 1 means all is OK. 0 means transient status.
 - `status_changed_on`
-  - Date of the last status change.
-- `check_interval_id`
-  - Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
+  - date of the last status change.
+- `badge_token`
+  - a UUID for the Montastic status badge
 
 
 ## Creating a Checkpoint
