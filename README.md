@@ -147,7 +147,7 @@ Response:
 
 ## Getting All Checkpoints
 
-Endpoint: GET https://montastic.com/checkpoints
+Endpoint: `GET` https://montastic.com/checkpoints
 
 Example:
 
