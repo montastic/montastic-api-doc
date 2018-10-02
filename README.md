@@ -76,7 +76,6 @@ A checkpoint is described as follows:
 - `badge_token`
   - a UUID for the Montastic status badge
 
-
 ## Creating a Checkpoint
 
 Endpoint: `POST` https://montastic.com/checkpoints
@@ -187,4 +186,3 @@ Endpoint: `PATCH` https://montastic.com/checkpoints/:id
 Response:
 
     Status: 200:OK
-
