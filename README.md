@@ -1,6 +1,6 @@
 # Montastic API Documentation
 
-The Montastic REST API allows users to do `CRUD (Create, Retrieve, Update, Delete`)
+The Montastic REST API allows users to do `CRUD` (Create, Retrieve, Update, Delete)
  operations to the URLs they monitor with Montastic.
 
 Montastic (www.montastic.com) is a web site monitoring service developed by Metadot.
@@ -15,7 +15,7 @@ A complete example in Python is available at [/examples/python](./examples/pytho
 
 The Montastic user's account `API key` must be used for authentication using a special header `X-API-KEY`.
 
-api key found in user account page at www.montastic.com
+Your API key can found in user account page at https://montastic.com/me
 
 Example:
 
@@ -32,7 +32,9 @@ Example:
 
 ### Requesting XML Responses (deprecated)
 
-    This document describes Montastic API using XML format
+We recommend to use JSON format. However if you need XML here is 
+the documentation:
+
    [Montastic XML API (deprecated)](./deprecated)
 
 ## Terminology
