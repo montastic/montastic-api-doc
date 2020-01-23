@@ -1,3 +1,5 @@
+[![Services Health](https://mon.montastic.io/badge)](https://mon.montastic.io)
+
 # Montastic API Documentation
 
 The Montastic REST API allows users to perform `CRUD` (Create, Retrieve, Update, Delete)
