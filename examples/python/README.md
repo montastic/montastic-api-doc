@@ -1,7 +1,6 @@
 # MONTASTIC API PYTHON EXAMPLE
 
-The script `montastic-api-tests.py` is an example how on to
- use Montastic REST JSON API in Python.
+The script `montastic-api-tests.py` is an example about using Montastic REST JSON API in Python.
 
 ## Installation
 
