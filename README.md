@@ -13,11 +13,18 @@ It allows webmasters to be alerted if their website goes down or if certain cond
 
 A complete example in Python is available at [/examples/python](./examples/python)
 
+## Note for Coders
+
+In this document, and for script reading purpose we use these shell variables:
+
+    YOUR_API_KEY='SECRET_KEY'
+    URL='https://montastic.com/checkpoints'
+    
 ## Authentication With API Key
 
-The Montastic user's account `API key` must be used for authentication using a special header `X-API-KEY`.
+The Montastic user's account `API key` must be used for authentication using a the HTTP header `X-API-KEY`.
 
-Your API key can found in user account page at https://montastic.com/me
+User's API key can found in user account page at https://montastic.com/me
 
 Example:
 
@@ -43,27 +50,20 @@ the documentation:
 
 In Montastic lingo, a `checkpoint` is a URL Montastic service is monitoring.
 
-## Note for Coders
-
-In this document, and for script reading purpose we use these shell variables:
-
-    YOUR_API_KEY='SECRET_KEY'
-    URL='https://montastic.com/checkpoints'
-
 ## Checkpoint Resource
 
-A checkpoint is described as follows:  
+A checkpoint JSON or XML answer is described as follows:  
 
 - `url`: required
   - URL to monitor. E.g. https://www.daskeyboard.com/
 - `name`
-  - Human / friendly name of this checkpoint. E.g. 'Website login page'.
+  - Human / friendly name of this checkpoint. E.g. 'Das keyboard website home page'.
 - `grep_this`
   - Keyword Montastic should look for. E.g. keyboard
 - `grep_presence`
-  - true (default) | false: if true, Montastic checks the presence of `grep-this` keyword. If false, Montastic checks that the document does not contain the `grep-this` keyword.
+  - true (default) | false: if true, Montastic checks the presence of `grep-this` keyword in the monitored URL. If false, Montastic checks that the document does not contain the `grep-this` keyword.
 - `is_monitoring_enabled`
-  - true | false: if true, Montastic monitors the checkpoint on a regular basis based on `check_interval_id`. If false, monitoring is paused.
+  - true | false: if true, Montastic monitors the checkpoint on a regular basis based every `check_interval_id`. If false, monitoring is paused and no alerts are sent.
 - `check_interval_id`
   - Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
 - `notes`
