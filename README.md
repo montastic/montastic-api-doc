@@ -5,13 +5,13 @@
 The Montastic REST API allows users to perform `CRUD` (Create, Retrieve, Update, Delete)
  operations to the URLs they monitor with Montastic.
 
-Montastic (www.montastic.com) is a web site monitoring service developed by Metadot.
-It allows webmasters to be alerted if their website goes down or if certain conditions
- are met such as the presence or the absence of a keyword on a HTML page.
+Montastic (www.montastic.com) is a web site monitoring service developed by <www.metadot.com>.
+It allows webmasters to be recieve notification by SMS or email when their website goes down or if certain conditions are met such as the presence or the absence of a keyword on a HTML page.
 
 ## Python Example
 
 A complete example in Python is available at [/examples/python](./examples/python)
+www
 
 ## Note for Coders
 
