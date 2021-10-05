@@ -62,8 +62,6 @@ A checkpoint JSON or XML answer is described as follows:
   - Keyword Montastic should look for. E.g. keyboard
 - `grep_presence`
   - true (default) | false: if true, Montastic checks the presence of `grep-this` keyword in the monitored URL. If false, Montastic checks that the document does not contain the `grep-this` keyword.
-- `is_monitoring_enabled`
-  - true | false: if true, Montastic monitors the checkpoint on a regular basis based every `check_interval_id`. If false, monitoring is paused and no alerts are sent.
 - `check_interval_id`
   - Monitoring interval in minutes. Possible values are 5, 10, 30, 60, 180, 360, 1440.
 - `notes`
@@ -71,6 +69,8 @@ A checkpoint JSON or XML answer is described as follows:
 - ====> *values below this line are read-only*
 - `id`
   - id of a checkpoint. Unique id assigned automatically at checkpoint creation time.
+- `is_monitoring_enabled`
+  - true | false: if true, Montastic monitors the checkpoint on a regular basis based every `check_interval_id`. If false, monitoring is paused and no alerts are sent.
 - `status`
   - -1 | 0 | 1: If -1 checkpoint is in alarm (e.g. website down). 1 means all is OK. 0 means transient status.
 - `status_changed_on`
@@ -78,7 +78,7 @@ A checkpoint JSON or XML answer is described as follows:
 - `badge_token`
   - a UUID for the Montastic status badge
 
-## Creating a Checkpoint
+## Creating A Checkpoint
 
 Endpoint: `POST` https://montastic.com/checkpoints
 
@@ -106,7 +106,7 @@ Response:
 }
 ````
 
-## Getting a Checkpoint by id
+## Getting A Checkpoint By id
 
 Endpoint: `GET` https://montastic.com/checkpoints/:id
 
@@ -135,7 +135,7 @@ Response:
 }
 ````
 
-## Deleting a Checkpoint
+## Deleting A Checkpoint
 
 Endpoint: `DELETE` https://montastic.com/checkpoints/:id
 
@@ -188,3 +188,19 @@ Endpoint: `PATCH` https://montastic.com/checkpoints/:id
 Response:
 
     Status: 200:OK
+
+## Enable / Disabling Checkpoint Monitoring
+
+Endpoint: `POST` https://montastic.com/checkpoints/:id/enable_monitoring
+or
+Endpoint: `POST` https://montastic.com/checkpoints/:id/disable_monitoring
+
+    curl  -X PATCH -H "X-API-KEY: $YOUR_API_KEY" http://montastic.com/checkpoints/21/disable_monitoring
+or
+
+    curl  -X PATCH -H "X-API-KEY: $YOUR_API_KEY" http://montastic.com/checkpoints/21/enable_monitoring
+
+Response:
+
+    Status: 200:OK
+
