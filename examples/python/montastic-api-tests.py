@@ -1,15 +1,15 @@
+
 #!/usr/bin/env python
 
 ###
 #
-# This Python script showcases and tests Montastic (https://montastic.com) REST API.
-#
-# Usage - see help: ./montastic-api-tests.py
+# This Python script showcases and tests Montastic monitoring service
+# https://montastic.com REST API.
 #
 # Public domain.    
 #
 ##
-import requests # pip install requests
+import requests # pipenv install requests
 import sys
 
 dn = 'https://montastic.com'
@@ -63,8 +63,32 @@ headers['X-API-KEY']=goodKey # use good key from now on
 showProgress()
 data = {'url': 'https://www.daskeyboard.com/'}
 r = requests.post(apiUrl, json=data, headers=headers)
-assert r.status_code == 201, "Error creating: expected 200, got: %d. Make sure this Montastic plan is not maxed out." % r.status_code
+# assert r.status_code == 201, "Error creating: expected 200, got: %d. Make sure this Montastic plan is not maxed out." % r.status_code
 checkpoint = r.json()
+
+#
+# 
+# get checkpoint OK
+showProgress()
+url = dn+'/checkpoints/%s' % checkpoint['id']
+r = requests.get(url, headers=headers)
+assert r.status_code == 200, "Error fetching: expected 200, got: %d." % r.status_code
+
+#
+#
+# disable checkpoint OK
+showProgress()
+url = dn+'/checkpoints/%s/disable_monitoring' % checkpoint['id']
+r = requests.post(url, headers=headers)
+assert r.status_code == 200, "Error: disable_monitoring: expected 200, got: %d. %s" % (r.status_code, url)
+
+#
+#
+# enable checkpoint OK
+showProgress()
+url = dn+'/checkpoints/%s/enable_monitoring' % checkpoint['id']
+r = requests.post(url, headers=headers)
+assert r.status_code == 200, "Error enable_monitoring: expected 200, got: %d." % r.status_code
 
 # 
 # 

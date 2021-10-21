@@ -11,7 +11,6 @@ It allows webmasters to be recieve notification by SMS or email when their websi
 ## Python Example
 
 A complete example in Python is available at [/examples/python](./examples/python)
-www
 
 ## Note for Coders
 
@@ -203,4 +202,3 @@ or
 Response:
 
     Status: 200:OK
-
